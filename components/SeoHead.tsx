@@ -10,6 +10,7 @@ type SeoHeadProps = {
 export default function SeoHead({ profile, siteUrl = "https://janedoe.dev" }: SeoHeadProps) {
   const title = `${profile.name} -- ${profile.role}`;
   const description = profile.bio;
+  const ogImage = `${siteUrl}/ss-landing-page.webp`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -37,11 +38,14 @@ export default function SeoHead({ profile, siteUrl = "https://janedoe.dev" }: Se
       <meta property="og:description" content={description} />
       <meta property="og:url" content={siteUrl} />
       <meta property="og:site_name" content={profile.name} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:image:alt" content={`${profile.name} personal website preview`} />
 
       {/* Twitter */}
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
 
       {/* Theme */}
       <meta name="theme-color" content="#0a0a0a" />
